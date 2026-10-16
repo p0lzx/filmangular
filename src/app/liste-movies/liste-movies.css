@@ -1,0 +1,12 @@
+/*@import 'bootstrap/dist/css/bootstrap.min.css';*/
+
+
+
+/*!* Optional: Make it responsive for mobile screens *!*/
+/*@media (max-width: 768px) {*/
+/*  .movie-item {*/
+/*    flex: 0 1 calc(50% - 20px); !* 2 per row on smaller screens *!*/
+/*  } class movies-grid
+class="movie-item"*/
+/*}*/
+

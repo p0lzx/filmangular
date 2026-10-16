@@ -1,0 +1,10 @@
+
+  <div class="card h-100 text-center">
+    <img width="200" height="200" [src]="filmin.poster_path" alt="{{filmin.title}}" style="object-fit: contain;" class="mx-auto d-block" (click)="ondetail()">
+    @if (showDetails){<app-movies-detail (filmSelecteddetails)="ondetail()" ></app-movies-detail>}
+    <div class="card-body">
+      <p> {{ filmin.title }} - {{ filmin.release_date }}</p>
+      <button class="" (click)="onaddfav()" >Ajouter aux favoris</button>
+    </div>
+  </div>
+

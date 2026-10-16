@@ -1,0 +1,11 @@
+<h1>Liste des films présents</h1>
+  <div class="container">
+    <div class="row g-4">
+      @for (film of Films; track film.id){
+        <div class="col-3">
+          <app-movies-card [filmin]="film" (filmSelected)="addfav(film)"></app-movies-card>
+        </div>
+      }
+    </div>
+  </div>
+

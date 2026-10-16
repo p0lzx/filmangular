@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+/*@import 'bootstrap/dist/css/bootstrap.min.css';*/
+
+/*.row {*/
+/*  display: flex !important;*/
+/*  flex-wrap: wrap !important;*/
+/*}*/
+
+/*.col-6 {*/
+/*  flex: 0 0 auto !important;*/
+/*  width: 50% !important;*/
+/*}*/
+
+/*@media (min-width: 768px) {*/
+/*  .col-md-4 {*/
+/*    width: 33.33333333% !important;*/
+/*  }*/
+/*}*/
+
+/*@media (min-width: 992px) {*/
+/*  .col-lg-3 {*/
+/*    width: 25% !important;*/
+/*  }*/
+/*}*/
+
+/*.movies-grid {*/
+/*  display: grid;*/
+/*  !* Automatically creates columns that are at least 200px wide *!*/
+/*  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));*/
+/*  gap: 20px;*/
+/*  justify-items: center; !* Centers the items inside their grid cells *!*/
+/*}*/
+
+/*.movie-item {*/
+/*  text-align: center;*/
+/*}*/
+
+
