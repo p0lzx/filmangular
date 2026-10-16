@@ -12,9 +12,7 @@ export class MoviesDetail {
 
   @Output() filmSelecteddetails : EventEmitter<Film> = new EventEmitter<Film>();
 
-  ondetail(){
-    this.filmSelecteddetails.emit(this.filmcard)
-  }
+
   afficherdetail(){
     this.filmSelecteddetails.emit(this.filmcard)
   }
