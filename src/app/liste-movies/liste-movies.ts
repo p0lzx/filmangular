@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Film } from './film/Film';
 import { MoviesCard } from './movies-card/movies-card';
 import { ListMoviesSearchbar } from './list-movies-searchbar/list-movies-searchbar';
+import {environment} from '../../environments/environment.development';
 
 @Component({
   imports: [MoviesCard, ListMoviesSearchbar],
@@ -12,9 +13,8 @@ import { ListMoviesSearchbar } from './list-movies-searchbar/list-movies-searchb
 export class ListeMovies {
   fav: Array<Film> = [];
 
-  api_token: string = 'fa01b4939ae3b1cc1ff00a6403c04804';
-  api_read: string =
-    'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYTAxYjQ5MzlhZTNiMWNjMWZmMDBhNjQwM2MwNDgwNCIsIm5iZiI6MTc5MjE0OTc1NS44MDgsInN1YiI6IjZhZDIwOGZiOGZiYzllZTcxOWM2MmI5NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.JMyxH5267earH6SySC-yKOssYOtTid1xSikPAflA4xs';
+  root_url: string = 'https://api.themoviedb.org/';
+  private apiKey = environment.api_key; // Use this.apiKey for your requests
 
   Films: Array<Film> = [
     {
