@@ -1,12 +1,19 @@
-<h1>Liste des films présents</h1>
-<app-list-movies-searchbar></app-list-movies-searchbar>
-  <div class="container">
-    <div class="row g-4">
-      @for (film of Films; track film.id){
-        <div class="col-3">
-          <app-movies-card [filmin]="film" (filmSelected)="addfav(film)"></app-movies-card>
-        </div>
-      }
-    </div>
-  </div>
 
+<div class="row">
+  @for (film of Films; track film.id) {
+    <div class="col-md-3 mb-4">
+      <div class="card">
+        <img
+          class="card-img-top"
+          [src]="'https://image.tmdb.org/t/p/w500' + film.poster_path"
+          [alt]="film.title"
+        >
+
+        <div class="card-body">
+          <h5 class="card-title">{{ film.title }}</h5>
+          <p class="card-text">{{ film.overview }}</p>
+        </div>
+      </div>
+    </div>
+  }
+</div>

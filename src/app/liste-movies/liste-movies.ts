@@ -15,14 +15,22 @@ import { Movies } from '../services/movies';
 export class ListeMovies implements OnInit {
   fav: Array<Film> = [];
 
-  private moviesserv: Movies = new Movies();
+  private moviesserv: Movies = inject(Movies); //service
 
 
   root_url: string = 'https://api.themoviedb.org/';
   private apiKey = environment.api_key; // Use this.apiKey for your requests
 
   ngOnInit() {
-    this.moviesserv.getMovies(); // used for init
+    this.moviesserv.getMovies().subscribe({
+      next: (response) => {
+        this.Films = response.results;
+        console.log(this.Films);
+      },
+      error: (err) => {
+        console.error('Error fetching movies:', err);
+      }
+    });// used for init
   }
 
 
