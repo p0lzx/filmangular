@@ -8,7 +8,7 @@ import { Film } from '../liste-movies/film/Film';
 export class Movies {
  // constructor(private http: HttpClient) {}
   private apiUrl = 'https://api.themoviedb.org/3';
-  private http = inject(HttpClient);
+  private http = inject(HttpClient); //3rd step
   private apiKey = environment.api_key; // Use this.apiKey for your requests
 
   getMovies(page: number = 1): Observable<any> {
@@ -19,7 +19,7 @@ export class Movies {
         language: 'fr-FR',
       },
     });
-  }
+  } //methods
 
   getMoviesDetail(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/movie/${id}`, {
