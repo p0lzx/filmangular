@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Film } from './film/Film';
 import { MoviesCard } from './movies-card/movies-card';
 import { ListMoviesSearchbar } from './list-movies-searchbar/list-movies-searchbar';
 import {environment} from '../../environments/environment.development';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   imports: [MoviesCard, ListMoviesSearchbar],
@@ -10,11 +11,13 @@ import {environment} from '../../environments/environment.development';
   styleUrl: './liste-movies.css',
   templateUrl: './liste-movies.html',
 })
-export class ListeMovies {
+export class ListeMovies implements OnInit {
   fav: Array<Film> = [];
 
   root_url: string = 'https://api.themoviedb.org/';
   private apiKey = environment.api_key; // Use this.apiKey for your requests
+
+  ngOnInit() {}
 
   Films: Array<Film> = [
     {

@@ -1,14 +1,18 @@
-import { Service } from '@angular/core';
+import { inject, Service } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment.development';
+import { Film } from '../liste-movies/film/Film';
 
 @Service()
 export class Movies {
-  constructor(private http: HttpClient) {}
-  private apiUrl = "https://api.themoviedb.org/"
+ // constructor(private http: HttpClient) {}
+  private apiUrl = 'https://api.themoviedb.org/3';
+  private http = inject(HttpClient);
+  private apiKey = environment.api_key; // Use this.apiKey for your requests
 
   getMovies(page: number = 1): Observable<any> {
-    return this.http.get<any>('${this.apiUrl}/movie/popular', {
+    return this.http.get<any>(`${this.apiUrl}/movie/popular`, {
       params: {
         api_key: this.apiKey,
         page: page.toString(),
@@ -17,21 +21,22 @@ export class Movies {
     });
   }
 
-  getMoviesDetail(id: number ): Observable<any> {
-    return this.http.get<any>('${this.apiUrl}/movie/${id}', {
+  getMoviesDetail(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/movie/${id}`, {
       params: {
         api_key: this.apiKey,
-          language: 'fr-FR',
+        language: 'fr-FR',
       },
     });
   }
 
   searchMovies(query: string): Observable<any> {
-    return this.http.get<any>('${this.apiUrl}/search/movie', {
+    return this.http.get<any>(`${this.apiUrl}/search/movie`, {
       params: {
         api_key: this.apiKey,
         query: query,
         language: 'fr-FR',
       },
     });
-  }}
+  }
+}
