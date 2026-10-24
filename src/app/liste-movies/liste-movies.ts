@@ -5,9 +5,10 @@ import { ListMoviesSearchbar } from './list-movies-searchbar/list-movies-searchb
 import {environment} from '../../environments/environment.development';
 import { HttpClient } from '@angular/common/http'
 import { Movies } from '../services/movies';
+import { MoviesDetail } from './movies-detail/movies-detail';
 
 @Component({
-  imports: [MoviesCard, ListMoviesSearchbar],
+  imports: [MoviesCard, ListMoviesSearchbar,MoviesDetail],
   selector: 'app-liste-movies',
   styleUrl: './liste-movies.css',
   templateUrl: './liste-movies.html',
@@ -16,10 +17,7 @@ export class ListeMovies implements OnInit {
   fav: Array<Film> = [];
 
   private moviesserv: Movies = inject(Movies); //service
-
-
-  root_url: string = 'https://api.themoviedb.org/';
-  private apiKey = environment.api_key; // Use this.apiKey for your requests
+  //private moviedetail: MoviesCard = new MoviesCard();
 
   ngOnInit() {
     this.moviesserv.getMovies().subscribe({
@@ -39,7 +37,7 @@ export class ListeMovies implements OnInit {
   ];
 
   addfav(film: Film) {
-    if (film.favbool == true) {
+    if (film.favbool) {
       alert('Le film est déja été ajouté aux favoris');
     } else {
       alert(`Le film ${film.title} a été ajouté aux favoris`);
@@ -47,4 +45,9 @@ export class ListeMovies implements OnInit {
       film.favbool = true;
     }
   }
+
+
 }
+
+
+

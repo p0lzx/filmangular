@@ -1,5 +1,6 @@
 
 export interface Film {
+  showDetails: boolean;
   favbool: boolean;
   id: number;
   title: string;

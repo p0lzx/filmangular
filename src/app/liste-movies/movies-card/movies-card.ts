@@ -9,18 +9,23 @@ import {MoviesDetail} from '../movies-detail/movies-detail';
   templateUrl: './movies-card.html',
 })
 export class MoviesCard {
-  @ViewChild(MoviesDetail) detail!: MoviesDetail;
+  //@ViewChild(MoviesDetail) detail!: MoviesDetail;
+  displaydet: String = "";
 
   @Input() filmine!: Film;
-  showDetails: boolean = false;
   @Output() filmSelected: EventEmitter<Film> = new EventEmitter<Film>();
-
-  ondetail() {
-    this.showDetails = true;
-    this.detail.afficherdetail();
-  }
 
   onaddfav() {
     this.filmSelected.emit(this.filmine);
   }
+
+  showdetails(filmine: Film) {
+    if (filmine.showDetails) {
+      //this.displaydet = "{{filmine.overview}}";
+      //this.displaydet
+      filmine.showDetails = false;
+    }
+  }
+
+  searchmovie(filmsear: Film) {}
 }

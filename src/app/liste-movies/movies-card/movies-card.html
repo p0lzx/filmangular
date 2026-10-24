@@ -1,4 +1,4 @@
-
+<!-- ce fichier est composant père de movies-detail et fils de liste-movies-->
 
   <div class="card h-100 text-center">
       <img
@@ -6,12 +6,11 @@
         class="card-img-top"
         [src]="'https://image.tmdb.org/t/p/w500' + filmine.poster_path"
         [alt]="filmine.title"
-        (click)="ondetail()"
       >
 
       <div class="card-body">
         <h5 class="card-title">{{ filmine.title }} : {{ filmine.release_date }}</h5>
         <button class="" (click)="onaddfav()">Ajouter aux favoris</button>
-        <p class="card-text">{{ filmine.overview }}</p>
+        <app-movies-detail [filminec]="filmine" (filmdetailed)="showdetails(filmine)"></app-movies-detail>
       </div>
   </div>

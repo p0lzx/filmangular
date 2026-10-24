@@ -1,11 +1,14 @@
-
+<!--ce fichier est composant père de movies-card -->
 <h1>Liste des films présents</h1>
-<app-list-movies-searchbar></app-list-movies-searchbar>
-<div class="container">
+<div class="position-relative" style="z-index: 1050;">
+  <app-list-movies-searchbar></app-list-movies-searchbar>
+</div>
+
+<div class="container movies-grid position-relative" style="z-index: 1;">
   <div class="row g-4">
   @for (film of Films; track film.id) {
     <div class="col-3">
-    <app-movies-card [filmine]="film" (filmSelected)="addfav(film)"></app-movies-card>
+    <app-movies-card [filmine]="film" (filmSelected)="addfav(film)" ></app-movies-card> <!-- [fils directive input name]="pere" and (fils directive output name)="do(pere)"-->
     </div>
   }
   </div>

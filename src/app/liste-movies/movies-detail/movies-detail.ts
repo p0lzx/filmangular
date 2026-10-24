@@ -8,15 +8,11 @@ import { Film } from '../film/Film';
   templateUrl: './movies-detail.html',
 })
 export class MoviesDetail {
-  @Input() filmcard!: Film; //the ! is added to avoid having no initializer or assigned constructor (to search in details)
+  @Input() filminec!: Film; //the ! is added to avoid having no initializer or assigned constructor (to search in details)
 
-  @Output() filmSelecteddetails : EventEmitter<Film> = new EventEmitter<Film>();
+  @Output() filmdetailed: EventEmitter<Film> = new EventEmitter<Film>(); //parent(movie-card) prend infos du fils(movie-detail)
 
-
-  afficherdetail(){
-    this.filmSelecteddetails.emit(this.filmcard)
+  ondetail() {
+    this.filmdetailed.emit(this.filminec);
   }
-
-
-
 }
