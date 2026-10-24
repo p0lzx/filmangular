@@ -1,10 +1,17 @@
 
-  <div class="card h-100 text-center">
-    <img width="200" height="200" [src]="filmin.poster_path" alt="{{filmin.title}}" style="object-fit: contain;" class="mx-auto d-block" (click)="ondetail()">
-    @if (showDetails){<app-movies-detail (filmSelecteddetails)="ondetail()" ></app-movies-detail>}
-    <div class="card-body">
-      <p> {{ filmin.title }} - {{ filmin.release_date }}</p>
-      <button class="" (click)="onaddfav()" >Ajouter aux favoris</button>
-    </div>
-  </div>
 
+  <div class="card h-100 text-center">
+      <img
+        width ="200"
+        class="card-img-top"
+        [src]="'https://image.tmdb.org/t/p/w500' + filmine.poster_path"
+        [alt]="filmine.title"
+        (click)="ondetail()"
+      >
+
+      <div class="card-body">
+        <h5 class="card-title">{{ filmine.title }} : {{ filmine.release_date }}</h5>
+        <button class="" (click)="onaddfav()">Ajouter aux favoris</button>
+        <p class="card-text">{{ filmine.overview }}</p>
+      </div>
+  </div>

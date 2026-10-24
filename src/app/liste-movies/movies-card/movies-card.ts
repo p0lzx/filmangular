@@ -11,7 +11,7 @@ import {MoviesDetail} from '../movies-detail/movies-detail';
 export class MoviesCard {
   @ViewChild(MoviesDetail) detail!: MoviesDetail;
 
-  @Input() filmin!: Film;
+  @Input() filmine!: Film;
   showDetails: boolean = false;
   @Output() filmSelected: EventEmitter<Film> = new EventEmitter<Film>();
 
@@ -21,6 +21,6 @@ export class MoviesCard {
   }
 
   onaddfav() {
-    this.filmSelected.emit(this.filmin);
+    this.filmSelected.emit(this.filmine);
   }
 }
