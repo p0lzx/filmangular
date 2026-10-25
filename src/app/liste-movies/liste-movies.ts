@@ -6,9 +6,19 @@ import {environment} from '../../environments/environment.development';
 import { HttpClient } from '@angular/common/http'
 import { Movies } from '../services/movies';
 import { MoviesDetail } from './movies-detail/movies-detail';
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+import { ListMoviesHeader } from './list-movies-header/list-movies-header';
 
 @Component({
-  imports: [MoviesCard, ListMoviesSearchbar,MoviesDetail],
+  imports: [
+    MoviesCard,
+    ListMoviesSearchbar,
+    MoviesDetail,
+    RouterModule,
+    RouterLink,
+    RouterOutlet,
+    ListMoviesHeader,
+  ],
   selector: 'app-liste-movies',
   styleUrl: './liste-movies.css',
   templateUrl: './liste-movies.html',
@@ -27,14 +37,11 @@ export class ListeMovies implements OnInit {
       },
       error: (err) => {
         console.error('Error fetching movies:', err);
-      }
-    });// used for init
+      },
+    }); // used for init
   }
 
-
-  Films: Array<Film> = [
-
-  ];
+  Films: Array<Film> = [];
 
   addfav(film: Film) {
     if (film.favbool) {
@@ -45,8 +52,6 @@ export class ListeMovies implements OnInit {
       film.favbool = true;
     }
   }
-
-
 }
 
 
