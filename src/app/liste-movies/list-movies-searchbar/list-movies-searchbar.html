@@ -32,9 +32,10 @@
                   [alt]="movie.title"
                   class="rounded"
                   style="width: 40px; height: 55px; object-fit: cover; flex-shrink: 0;"
+                  (click)="ondetail(filmine.id)"
                 >
                 <!-- Film Title -->
-                <span class="fw-semibold text-truncate">
+                <span class="fw-semibold text-truncate" >
                 {{ movie.title }}
               </span>
 

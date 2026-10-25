@@ -6,11 +6,13 @@
         class="card-img-top"
         [src]="'https://image.tmdb.org/t/p/w500' + filmine.poster_path"
         [alt]="filmine.title"
+        [routerLink]="['/movie', filmine.id]"
       >
 
       <div class="card-body">
         <h5 class="card-title">{{ filmine.title }} : {{ filmine.release_date }}</h5>
         <button class="" (click)="onaddfav()">Ajouter aux favoris</button>
-        <app-movies-detail [filminec]="filmine" (filmdetailed)="showdetails(filmine)"></app-movies-detail>
       </div>
   </div>
+
+<!--         <app-movies-detail [filminec]="filmine" (filmdetailed)="showdetails(filmine)"></app-movies-detail> -->

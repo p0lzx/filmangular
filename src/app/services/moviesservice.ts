@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment.development';
 import { Film } from '../liste-movies/film/Film';
 
 @Service()
-export class Movies {
+export class Moviesservice {
  // constructor(private http: HttpClient) {}
   private apiUrl = 'https://api.themoviedb.org/3';
   private http = inject(HttpClient); //3rd step

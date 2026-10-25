@@ -4,10 +4,11 @@ import { MoviesCard } from './movies-card/movies-card';
 import { ListMoviesSearchbar } from './list-movies-searchbar/list-movies-searchbar';
 import {environment} from '../../environments/environment.development';
 import { HttpClient } from '@angular/common/http'
-import { Movies } from '../services/movies';
+import { Moviesservice } from '../services/moviesservice';
 import { MoviesDetail } from './movies-detail/movies-detail';
 import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { ListMoviesHeader } from './list-movies-header/list-movies-header';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   imports: [
@@ -26,19 +27,22 @@ import { ListMoviesHeader } from './list-movies-header/list-movies-header';
 export class ListeMovies implements OnInit {
   fav: Array<Film> = [];
 
-  private moviesserv: Movies = inject(Movies); //service
+  private moviesserv: Moviesservice = inject(Moviesservice); //service
+  private cdr = inject(ChangeDetectorRef); //film doesn't reload after oninit redirect
   //private moviedetail: MoviesCard = new MoviesCard();
 
-  ngOnInit() {
+  ngOnInit(): void {
+    console.log('ListeMovies initialized');
+
     this.moviesserv.getMovies().subscribe({
-      next: (response) => {
-        this.Films = response.results;
-        console.log(this.Films);
+      next: (data) => {
+        console.log('API response:', data);
+        this.Films = data.results;
+        this.cdr.markForCheck(); //solution for displaying, not only recieving data after redirection
+        console.log('Films array:', this.Films);
       },
-      error: (err) => {
-        console.error('Error fetching movies:', err);
-      },
-    }); // used for init
+      error: (err) => console.error('Movie request failed:', err),
+    });
   }
 
   Films: Array<Film> = [];
