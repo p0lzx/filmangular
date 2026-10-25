@@ -2,8 +2,7 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Film } from '../film/Film';
 import { Moviesservice } from '../../services/moviesservice';
-import { RouterLink } from '@angular/router';
-import { Router } from 'express';
+import { RouterLink, Router } from '@angular/router';
 
 @Component({
   imports: [FormsModule, RouterLink],
