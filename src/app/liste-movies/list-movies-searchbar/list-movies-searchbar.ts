@@ -2,7 +2,7 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Film } from '../film/Film';
 import { Moviesservice } from '../../services/moviesservice';
-import { RouterLink, Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   imports: [FormsModule, RouterLink],
@@ -31,6 +31,7 @@ export class ListMoviesSearchbar {
     });
   } // called a promise
   ondetail(id: number | string) {
-    this.router.navigate(['/movies', id]);
+    this.router.navigate(['/movie', id]);
   }
+
 }

@@ -17,12 +17,15 @@ export class MoviesDetail implements OnInit {
   private router = inject(Router);
   private moviedetail = inject(Moviesservice);
 
+  private route = inject(ActivatedRoute);
+  id : string | null = null;
+
   ondetail() {
     this.filmdetailed.emit(this.filminec);
   }
   ngOnInit() {
-    this.moviedetail.getMoviesDetail(this.filminec.id) // to continue
+    this.id = this.route.snapshot.paramMap.get('id');
+    //this.moviedetail.getMoviesDetail(this.filminec.id) // to continue
   }
 
-  private actroute = inject(ActivatedRoute);
 }
